@@ -1,0 +1,24 @@
+{
+  "name": "investira.react.docs",
+  "version": "1.0.0",
+  "description": "Documentação dos components React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/investira/investira.react.docs.git"
+  },
+  "keywords": [
+    "docs",
+    "react",
+    "components"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/investira/investira.react.docs/issues"
+  },
+  "homepage": "https://github.com/investira/investira.react.docs#readme"
+}
