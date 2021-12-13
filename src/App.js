@@ -1,7 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { Button } from "investiraComponents";
+import { Basic, Button } from "investira.react.components";
+import { renders, displays } from "investira.react.lib";
 
 function App() {
   return (
@@ -11,6 +12,11 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
+        <Basic>Teste</Basic>
+        <Button variant="outlined" color="primary">
+          Teste
+        </Button>
+        {displays.cpf("10403782775")}
         <a
           className="App-link"
           href="https://reactjs.org"
