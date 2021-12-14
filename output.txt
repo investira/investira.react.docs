@@ -1,0 +1,96 @@
+[
+  {
+    test: [ /\.avif$/ ],
+    loader: '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/url-loader/dist/cjs.js',
+    options: {
+      limit: 10000,
+      mimetype: 'image/avif',
+      name: 'static/media/[name].[hash:8].[ext]'
+    }
+  },
+  {
+    test: [ /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/ ],
+    loader: '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/url-loader/dist/cjs.js',
+    options: { limit: 10000, name: 'static/media/[name].[hash:8].[ext]' }
+  },
+  {
+    test: /\.(js|mjs|jsx|ts|tsx)$/,
+    include: [
+      '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/src',
+      '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.components/src'
+    ],
+    loader: '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/react-scripts/node_modules/babel-loader/lib/index.js',
+    options: {
+      customize: '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/babel-preset-react-app/webpack-overrides.js',
+      presets: [Array],
+      babelrc: false,
+      configFile: false,
+      cacheIdentifier: 'development:babel-plugin-named-asset-import@0.3.7:babel-preset-react-app@10.0.0:react-dev-utils@11.0.4:react-scripts@4.0.3',
+      plugins: [Array],
+      cacheDirectory: true,
+      cacheCompression: false,
+      compact: false
+    }
+  },
+  {
+    test: /\.(js|mjs)$/,
+    exclude: /@babel(?:\/|\\{1,2})runtime/,
+    loader: '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/react-scripts/node_modules/babel-loader/lib/index.js',
+    options: {
+      babelrc: false,
+      configFile: false,
+      compact: false,
+      presets: [Array],
+      cacheDirectory: true,
+      cacheCompression: false,
+      cacheIdentifier: 'development:babel-plugin-named-asset-import@0.3.7:babel-preset-react-app@10.0.0:react-dev-utils@11.0.4:react-scripts@4.0.3',
+      sourceMaps: true,
+      inputSourceMap: true
+    }
+  },
+  {
+    test: /\.css$/,
+    exclude: /\.module\.css$/,
+    use: [
+      '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/style-loader/dist/cjs.js',
+      [Object],
+      [Object]
+    ],
+    sideEffects: true
+  },
+  {
+    test: /\.module\.css$/,
+    use: [
+      '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/style-loader/dist/cjs.js',
+      [Object],
+      [Object]
+    ]
+  },
+  {
+    test: /\.(scss|sass)$/,
+    exclude: /\.module\.(scss|sass)$/,
+    use: [
+      '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/style-loader/dist/cjs.js',
+      [Object],
+      [Object],
+      [Object],
+      [Object]
+    ],
+    sideEffects: true
+  },
+  {
+    test: /\.module\.(scss|sass)$/,
+    use: [
+      '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/style-loader/dist/cjs.js',
+      [Object],
+      [Object],
+      [Object],
+      [Object]
+    ]
+  },
+  {
+    loader: '/Users/MagnoValdetaro/Fnt/Web/JS/investira.react.docs/node_modules/file-loader/dist/cjs.js',
+    exclude: [ /\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/ ],
+    options: { name: 'static/media/[name].[hash:8].[ext]' }
+  }
+]
