@@ -1,45 +1,45 @@
-import React from "react";
-import {
-  withKnobs,
-  select,
-  radios,
-  boolean,
-  text,
-} from "@storybook/addon-knobs";
 import { Button } from "investira.react.components";
 import { basicColors } from "./options";
 
-export default {
-  title: "Button",
-  decorator: [withKnobs],
-  component: Button,
+const optionsSize = {
+  small: "small",
+  medium: "medium",
+  large: "large",
 };
 
-export const Default = () => {
-  const optionsSize = {
-    small: "small",
-    medium: "medium",
-    large: "large",
-  };
+const optionsVariant = {
+  contained: "contained",
+  outlined: "outlined",
+  text: "text",
+};
 
-  const optionsVariant = {
-    contained: "contained",
-    outlined: "outlined",
-    text: "text",
-  };
+export default {
+  title: "Button",
+  component: Button,
+  argTypes: {
+    variant: {
+      options: optionsVariant,
+      control: { type: "radio" },
+    },
+    size: {
+      options: optionsSize,
+      control: { type: "radio" },
+    },
+    color: {
+      options: basicColors,
+      control: { type: "select" },
+    },
+  },
+};
 
-  return (
-    <Button
-      disabled={boolean("Disabled", false)}
-      disableElevation={boolean("disableElevation", false)}
-      disableFocusRipple={boolean("disableFocusRipple", false)}
-      disableRipple={boolean("disableRipple", false)}
-      fullWidth={boolean("fullWidth", false)}
-      variant={radios("Tipo", optionsVariant, "text")}
-      size={radios("Tamanho", optionsSize, "medium")}
-      color={select("Cor", basicColors, "primary")}
-    >
-      {text("Label", "Botão")}
-    </Button>
-  );
+const Template = (args) => <Button {...args}>{args.label}</Button>;
+
+export const Primary = Template.bind({});
+Primary.args = {
+  label: "Teste",
+  fullWidth: false,
+  disabled: false,
+  disableElevation: false,
+  disableFocusRipple: false,
+  disableRipple: false,
 };
