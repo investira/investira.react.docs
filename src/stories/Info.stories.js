@@ -27,19 +27,12 @@ export default {
       control: { type: "radios" },
     },
     gutter: {
-      options: {
-        left: "left",
-        full: "full",
-        right: "right",
-      },
+      options: ["left", "full", "right"],
       control: { type: "radios" },
     },
 
     direction: {
-      options: {
-        vertical: "vertical",
-        horizontal: "horizontal",
-      },
+      options: ["vertical", "horizontal"],
       control: { type: "radios" },
     },
   },

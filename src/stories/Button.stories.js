@@ -1,17 +1,9 @@
 import { Button } from "investira.react.components";
 import { basicColors } from "./options";
 
-const optionsSize = {
-  small: "small",
-  medium: "medium",
-  large: "large",
-};
+const optionsSize = ["small", "medium", "large"];
 
-const optionsVariant = {
-  contained: "contained",
-  outlined: "outlined",
-  text: "text",
-};
+const optionsVariant = ["contained", "outlined", "text"];
 
 export default {
   title: "Button",
