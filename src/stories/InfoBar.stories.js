@@ -1,12 +1,5 @@
 import React from "react";
 import { InfoBar } from "investira.react.components";
-import {
-  withKnobs,
-  text,
-  radios,
-  number,
-  select,
-} from "@storybook/addon-knobs";
 import { variants, textColors, basicColors, barRange } from "./options";
 
 export default {
@@ -15,11 +8,43 @@ export default {
     componentSubtitle:
       "Display de informação em forma de barra, utiliza a ProgressBar",
   },
-  decorators: [withKnobs],
   component: InfoBar,
+  argTypes: {
+    variant: {
+      options: variants,
+      control: { type: "select" },
+    },
+    captionColor: {
+      options: textColors,
+      control: { type: "radios" },
+    },
+    labelColor: {
+      options: textColors,
+      control: { type: "radios" },
+    },
+
+    valueColor: {
+      options: basicColors,
+      control: { type: "radios" },
+    },
+    value: {
+      options: barRange,
+      control: { type: "number" },
+    },
+    label: {
+      control: { type: "text" },
+    },
+    caption: {
+      control: { type: "text" },
+    },
+    animate: {
+      options: ["progress", "indeterminate"],
+      control: { type: "radios" },
+    },
+  },
 };
 
-export const Default = () => {
+export const Template = () => {
   return (
     <div
       style={{
@@ -29,17 +54,18 @@ export const Default = () => {
         width: "300px",
       }}
     >
-      <InfoBar
-        variant={select("Tamanho da fonte da label", variants, "caption")}
-        captionColor={radios("Cor do caption", textColors, "textSecondary")}
-        labelColor={radios("Cor da label", textColors, "textSecondary")}
-        variantValue={"body1"}
-        valueColor={radios("Cor da barra", basicColors, "primary")}
-        value={number("Valor", 100, barRange)}
-        label={text("Label", "Label")}
-        caption={text("Caption", "Caption")}
-        animate={radios("Animação", ["progress", "indeterminate"], "progress")}
-      />
+      <InfoBar variantValue={"body1"} />
     </div>
   );
+};
+export const Primary = Template.bind({});
+Primary.args = {
+  value: 100,
+  label: "Teste",
+  variant: "caption",
+  captionColor: "textSecondary",
+  labelColor: "textSecondary",
+  valueColor: "primary",
+  caption: "Teste",
+  animate: "progress",
 };
