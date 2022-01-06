@@ -24,9 +24,7 @@ export default {
   },
 };
 
-const Template = (args) => <Button {...args}>{args.label}</Button>;
-
-export const Primary = Template.bind({});
+export const Primary = (args) => <Button {...args}>{args.label}</Button>;
 Primary.args = {
   label: "Teste",
   fullWidth: false,
