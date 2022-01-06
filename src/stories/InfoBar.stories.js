@@ -14,18 +14,22 @@ export default {
       options: variants,
       control: { type: "select" },
     },
+    captionVariant: {
+      options: variants,
+      control: { type: "select" },
+    },
     captionColor: {
       options: textColors,
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
     labelColor: {
       options: textColors,
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
 
     valueColor: {
       options: basicColors,
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
     value: {
       options: barRange,
@@ -39,26 +43,13 @@ export default {
     },
     animate: {
       options: ["progress", "indeterminate"],
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
   },
 };
 
-export const Template = () => {
-  return (
-    <div
-      style={{
-        backgroundColor: "#191b2a",
-        padding: "16px",
-        borderRadius: "10px",
-        width: "300px",
-      }}
-    >
-      <InfoBar variantValue={"body1"} />
-    </div>
-  );
-};
-export const Primary = Template.bind({});
+export const Primary = (args) => <InfoBar {...args} />;
+
 Primary.args = {
   value: 100,
   label: "Teste",
@@ -68,4 +59,5 @@ Primary.args = {
   valueColor: "primary",
   caption: "Teste",
   animate: "progress",
+  captionVariant: "caption",
 };
