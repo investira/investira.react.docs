@@ -20,38 +20,26 @@ export default {
     },
     valueColor: {
       options: textColors,
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
     labelColor: {
       options: textColors,
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
     gutter: {
       options: ["left", "full", "right"],
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
 
     direction: {
       options: ["vertical", "horizontal"],
-      control: { type: "radios" },
+      control: { type: "radio" },
     },
   },
 };
 
-const Template = (args) => (
-  <div
-    style={{
-      backgroundColor: "#191b2a",
-      padding: "16px",
-      borderRadius: "10px",
-      width: "300px",
-    }}
-  >
-    <Info />
-  </div>
-);
+export const Primary = (args) => <Info {...args} />;
 
-export const Primary = Template.bind({});
 Primary.args = {
   value: "R$ 1.000,00",
   label: "Teste",
