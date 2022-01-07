@@ -6,7 +6,7 @@ export default {
   component: ContainerList,
 };
 
-export const Primary = (args) => {
+export const Default = (args) => {
   return (
     <ContainerList {...args}>
       <List>
@@ -25,4 +25,4 @@ export const Primary = (args) => {
     </ContainerList>
   );
 };
-Primary.args = { sticky: false };
+Default.args = { sticky: false };
