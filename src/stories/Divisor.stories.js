@@ -1,26 +1,26 @@
 import React from "react";
-import { radios, withKnobs } from "@storybook/addon-knobs";
 import { Divisor } from "investira.react.components";
 
 export default {
   title: "Divisor",
   component: Divisor,
-  decorators: [withKnobs],
+  argTypes: {
+    direction: {
+      options: ["vertical", "horizontal"],
+      control: {
+        type: "radio",
+      },
+    },
+  },
 };
 
-export const Default = () => {
+export const Default = (args) => {
   return (
-    <div style={{ height: "100px" }}>
-      <Divisor
-        direction={radios(
-          "Direção",
-          {
-            Vertical: "vertical",
-            Horizontal: "horizontal",
-          },
-          "horizontal"
-        )}
-      />
+    <div style={{ height: "100vh" }}>
+      <Divisor {...args} />
     </div>
   );
+};
+Default.args = {
+  direction: "horizontal",
 };
