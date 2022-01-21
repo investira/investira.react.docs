@@ -1,33 +1,38 @@
 import React from "react";
 import { FluidPaper } from "investira.react.components";
-import {
-  withKnobs,
-  text,
-  boolean,
-  number,
-  radios,
-} from "@storybook/addon-knobs";
 
 export default {
   title: "FluidPaper",
   parameters: {
     componentSubtitle: "Paper que alarga em 100% quando selecionado",
   },
-  decorators: [withKnobs],
   component: FluidPaper,
+  argTypes: {
+    variant: {
+      options: ["elevation"],
+      control: { type: "radio" },
+    },
+    elevation: {
+      control: { type: "number" },
+    },
+    selected: {
+      control: { type: "boolean" },
+    },
+  },
 };
 
-export const Default = () => {
+export const Default = (args) => {
   return (
-    <FluidPaper
-      selected={boolean("Selecionado", false)}
-      elevation={number("Elevação")}
-      variant={radios("Variante", { elevation: "elevation" })}
-      square={boolean("Quadrado", false)}
-    >
+    <FluidPaper {...args}>
       <div style={{ padding: "16px", fontFamily: "Montserrat" }}>
-        <b> {text("Conteúdo", "Papel fluido")} </b>
+        <b> {args.conteudo} </b>
       </div>
     </FluidPaper>
   );
+};
+
+Default.args = {
+  square: false,
+  selected: false,
+  conteudo: "Papel fluido",
 };
