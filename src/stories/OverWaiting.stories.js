@@ -1,47 +1,58 @@
 import React from "react";
-import {
-  radios,
-  select,
-  boolean,
-  number,
-  text,
-  withKnobs,
-} from "@storybook/addon-knobs";
 import { OverWaiting } from "investira.react.components";
 import { textColors, variants } from "./options";
 
 export default {
   title: "OverWaiting",
   component: OverWaiting,
-  decorators: [withKnobs],
+  argTypes: {
+    progressProps: {
+      color: {
+        options: [
+          "primary",
+          "secondary",
+          "success",
+          "info",
+          "warning",
+          "danger",
+        ],
+        control: { type: "select" },
+      },
+      variant: {
+        options: ["determinate", "indeterminate", "query", "buffer"],
+        control: { type: "radio" },
+      },
+    },
+    typographyProps: {
+      color: {
+        options: textColors,
+        control: { type: "radio" },
+      },
+      variant: {
+        options: variants,
+        control: { type: "select" },
+      },
+    },
+  },
 };
 
-export const Default = () => {
-  return (
-    <OverWaiting
-      cancelable={boolean("Cancelável", true)}
-      backgroundFlat={boolean("Fundo plano", false)}
-      open={boolean("Esperando", true)}
-      message={text("Mensagem de carregamento")}
-      progressProps={{
-        color: select(
-          "Cor do progresso",
-          ["primary", "secondary", "success", "info", "warning", "danger"],
-          "primary"
-        ),
-        value: number("Valor do progresso", 100),
-        variant: radios(
-          "Variante",
-          ["determinate", "indeterminate", "query", "buffer"],
-          "determinate"
-        ),
-      }}
-      typographyProps={{
-        color: radios("Cor da mensagem", textColors, "textSecondary"),
-        variant: select("Tamanho da mensagem", variants, "caption"),
-      }}
-      min={number("Mínimo", 0)}
-      max={number("Máximo", 100)}
-    />
-  );
+export const Default = (args) => {
+  return <OverWaiting {...args} />;
+};
+Default.args = {
+  cancelable: true,
+  backgroundFlat: false,
+  open: true,
+  message: "Carregando...",
+  progressProps: {
+    color: "primary",
+    value: 100,
+    variant: "determinate",
+  },
+  typographyProps: {
+    color: "textSecondary",
+    variant: "caption",
+  },
+  min: 0,
+  max: 100,
 };
