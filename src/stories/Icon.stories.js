@@ -1,5 +1,4 @@
 import React from "react";
-import { withKnobs, number, select } from "@storybook/addon-knobs";
 import { Icon } from "investira.react.components";
 import { icons, iconColors } from "./options";
 
@@ -8,16 +7,22 @@ export default {
   parameters: {
     componentSubtitle: "Renderiza ícones em svg",
   },
-  decorators: [withKnobs],
   component: Icon,
+  argTypes: {
+    iconName: {
+      control: { type: "select", options: icons },
+    },
+    color: {
+      control: { type: "select", options: iconColors },
+    },
+  },
 };
 
-export const Default = () => {
-  return (
-    <Icon
-      iconName={select("Ícone", icons, "investira_h")}
-      size={number("Tamanho", 160)}
-      color={select("Cor", iconColors, "greenLight")}
-    />
-  );
+export const Default = (args) => {
+  return <Icon {...args} />;
+};
+Default.args = {
+  size: 160,
+  color: "greenLight",
+  iconName: "investira_h",
 };
