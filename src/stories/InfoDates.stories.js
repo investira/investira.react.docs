@@ -28,9 +28,6 @@ export default {
       },
       control: { type: "radio" },
     },
-    format: {
-      control: { type: "text" },
-    },
     time: {
       control: { type: "date" },
     },
