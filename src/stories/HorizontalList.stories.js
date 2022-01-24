@@ -1,7 +1,6 @@
 import React from "react";
 import { addParameters } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-import { withKnobs, number } from "@storybook/addon-knobs";
 import { HorizontalList } from "investira.react.components";
 
 export default {
@@ -11,7 +10,6 @@ export default {
       "Lista horizontal com centralização do elemento selecionado",
   },
   component: HorizontalList,
-  decorators: [withKnobs],
 };
 
 addParameters({
@@ -48,10 +46,10 @@ const generateData = (size = 6) => {
   return xData;
 };
 
-export const Default = () => (
+export const Default = (args) => (
   <Wrapper>
     <HorizontalList
-      initialFocus={number("Foco inicial", 6)}
+      {...args}
       id={"horizontalList"}
       onClick={action("clicked")}
       child={Item}
@@ -62,3 +60,6 @@ export const Default = () => (
     />
   </Wrapper>
 );
+Default.args = {
+  initialFocus: 6,
+};
