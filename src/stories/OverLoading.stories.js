@@ -1,30 +1,30 @@
 import React from "react";
-import {
-  boolean,
-  number,
-  radios,
-  select,
-  text,
-  withKnobs,
-} from "@storybook/addon-knobs";
 import { OverLoading } from "investira.react.components";
 import { textColors, variants } from "./options";
 
 export default {
   title: "OverLoading",
   component: OverLoading,
-  decorators: [withKnobs],
+  argTypes: {
+    variant: {
+      options: variants,
+      control: { type: "select" },
+    },
+    color: {
+      options: textColors,
+      control: { type: "select" },
+    },
+  },
 };
 
-export const Default = () => {
-  return (
-    <OverLoading
-      backgroundFlat={boolean("Fundo plano", false)}
-      open={boolean("Carregando?", true)}
-      message={text("Mensagem de carregamento")}
-      color={radios("Cor da mensagem", textColors, "textSecondary")}
-      variant={select("Variante", variants, "caption")}
-      size={number("Tamanho do círculo", 40)}
-    />
-  );
+export const Default = (args) => {
+  return <OverLoading {...args} />;
+};
+Default.args = {
+  open: true,
+  backgroundFlat: false,
+  message: "Carregando...",
+  color: "textSecondary",
+  variant: "caption",
+  size: 40,
 };
