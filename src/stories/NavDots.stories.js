@@ -1,13 +1,14 @@
 import React from "react";
-import { number, withKnobs } from "@storybook/addon-knobs";
 import { NavDots } from "investira.react.components";
 
 export default {
   title: "NavDots",
   component: NavDots,
-  decorators: [withKnobs],
 };
 
-export const Default = () => {
-  return <NavDots size={number("Tamanho", 5)} />;
+export const Default = (args) => {
+  return <NavDots {...args} />;
+};
+Default.args = {
+  size: 5,
 };
