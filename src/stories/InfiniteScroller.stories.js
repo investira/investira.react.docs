@@ -11,7 +11,7 @@ export const Default = () => {
     <InfiniteScroller>
       <List>
         {[...Array(200)].map((_, i) => (
-          <div> Elemento {i}</div>
+          <div style={{ color: "white" }}> Elemento {i}</div>
         ))}
       </List>
     </InfiniteScroller>
