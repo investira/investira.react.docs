@@ -35,12 +35,6 @@ export default {
       options: barRange,
       control: { type: "number" },
     },
-    label: {
-      control: { type: "text" },
-    },
-    caption: {
-      control: { type: "text" },
-    },
     animate: {
       options: ["progress", "indeterminate"],
       control: { type: "radio" },
