@@ -1,26 +1,28 @@
 import React from "react";
 import { ProgressBar } from "investira.react.components";
-import { withKnobs, number, radios } from "@storybook/addon-knobs";
-import { barRange, basicColors } from "./options";
+import { basicColors } from "./options";
 
 export default {
   title: "ProgressBar",
   parameters: {
     componentSubtitle: "ProgressBar",
   },
-  decorators: [withKnobs],
   component: ProgressBar,
+  argTypes: {
+    color: {
+      options: basicColors,
+      control: { type: "radio" },
+    },
+    animate: {
+      options: ["indeterminate", "progress"],
+      control: { type: "radio" },
+    },
+  },
 };
 
-export const Default = () => {
-  return (
-    <ProgressBar
-      value={number("Valor", 100, barRange)}
-      color={radios("Cor", basicColors)}
-      animate={radios("Animação", {
-        Indeterminada: "indeterminate",
-        Progresso: "progress",
-      })}
-    />
-  );
+export const Default = (args) => {
+  return <ProgressBar {...args} />;
+};
+Default.args = {
+  value: 100,
 };
